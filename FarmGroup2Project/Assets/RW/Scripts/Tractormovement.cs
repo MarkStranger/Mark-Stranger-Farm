@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Tractormovement : MonoBehaviour
 {
+    [Header("Fire Property")]
+    [SerializeField] private GameObject senoPrefab;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private float fireRate;
+    private float nextFire;
+
+
+
     [SerializeField] private float bounds;
     [SerializeField] private float speed;
     private float direction;
     private bool isPress;
 
 
-    void Start()
+   private void Start()
     {
-
+        nextFire = fireRate;
     }
 
 
@@ -27,8 +35,8 @@ public class Tractormovement : MonoBehaviour
             }
 
         }
-
-
+        // nextFire -= Time.deltaTime;
+        nextFire += Time.deltaTime;
 
     }
 
@@ -65,9 +73,30 @@ public class Tractormovement : MonoBehaviour
     }
     
 
+   // public void PressFire()
+   // {
+    //    if (nextFire < 0)
+    //    {
+    //        GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity); //senoPrefab.transform.rotation-поворот префаба
+    //        Destroy(seno, 15f);
+
+    //        nextFire = fireRate;
+      //  }
+    
+   // }
+
+    public void PressFire()
+    {
+        if (nextFire  > fireRate )
+        {
+            GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity);
+
+            nextFire = 0;
+        }
 
 
 
+    }
 
 
 
