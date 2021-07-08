@@ -7,9 +7,10 @@ public class Tractormovement : MonoBehaviour
     [Header("Fire Property")]
     [SerializeField] private GameObject senoPrefab;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private float fireRate;
-    private float nextFire;
-
+  //  [SerializeField] private float fireRate;
+    //private float nextFire;
+    public float fireRate = 0.5f;
+    private float nextFire = 0.0f;
 
 
     [SerializeField] private float bounds;
@@ -26,18 +27,22 @@ public class Tractormovement : MonoBehaviour
 
     void Update()
     
-    {    if (isPress == true)
-        {
+    {    //if (isPress == true)
+       // {
 
-            if (((transform.position.x > -bounds) && (direction == 1f)) || ((transform.position.x < bounds) && (direction == -1f)))
-            {
-                transform.Translate(Vector3.left * speed * direction * Time.deltaTime);
-            }
+          //  if (((transform.position.x > -bounds) && (direction == 1f)) || ((transform.position.x < bounds) && (direction == -1f)))
+           // {
+            //    transform.Translate(Vector3.left * speed * direction * Time.deltaTime);
+           // }
 
-        }
+      //  }
         // nextFire -= Time.deltaTime;
         nextFire += Time.deltaTime;
-
+        if (Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            
+        }
     }
 
 
