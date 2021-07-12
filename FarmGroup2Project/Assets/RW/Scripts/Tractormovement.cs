@@ -9,6 +9,8 @@ public class Tractormovement : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float fireRate;
     private float nextFire;
+    [SerializeField] Transform senoContainer;
+   
 
 
 
@@ -26,20 +28,29 @@ public class Tractormovement : MonoBehaviour
 
     void Update()
     
-    {    if (isPress == true)
-        {
+    {
+        //if (Time.time > nextFire)
+       // {
 
-            if (((transform.position.x > -bounds) && (direction == 1f)) || ((transform.position.x < bounds) && (direction == -1f)))
-            {
-                transform.Translate(Vector3.left * speed * direction * Time.deltaTime);
-            }
+            //nextFire = Time.time + fireRate;
+            //Instantiate(senoPrefab, transform.position, transform.rotation);
+        //}
+         //if (isPress == true)
+         // {
 
-        }
-        // nextFire -= Time.deltaTime;
-        nextFire += Time.deltaTime;
+            // if (((transform.position.x > -bounds) && (direction == 1f)) || ((transform.position.x < bounds) && (direction == -1f)))
+            // {
+            //    transform.Translate(Vector3.left * speed * direction * Time.deltaTime);
+            //}
+
+            // }
+            // nextFire -= Time.deltaTime;
+            // nextFire += Time.deltaTime;
 
     }
-
+            
+        
+       
 
     public void PressRight()
     {
@@ -87,11 +98,14 @@ public class Tractormovement : MonoBehaviour
 
     public void PressFire()
     {
-        if (nextFire  > fireRate )
+        if (Time.time > nextFire)
         {
-            GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity);
+            nextFire = Time.time + fireRate;
 
-            nextFire = 0;
+           GameObject seno = Instantiate(senoPrefab, spawnPoint.position, Quaternion.identity);
+            Destroy(seno, 15f);
+
+            seno.transform.SetParent(senoContainer);
         }
 
 

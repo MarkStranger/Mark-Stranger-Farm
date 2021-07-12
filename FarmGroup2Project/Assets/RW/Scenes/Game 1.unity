@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3983550542895742314, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5460923277005466449, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_Name
       value: Seno (1)
@@ -273,6 +277,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 55.202003, y: -27.348001, z: 5.7660003}
+--- !u!1 &178608186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178608188}
+  - component: {fileID: 178608187}
+  m_Layer: 0
+  m_Name: Spawn Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &178608187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178608186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925a34fc41e73ec4fb001312afa53f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepPrefab: {fileID: 4217976341934826318, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+  spawnPosition: {x: 0, y: 0, z: 55}
+  xSpawnBounds: {x: 22, y: -22}
+  sheepCount: 5
+  spawnRate: 0.5
+  waveRate: 5
+  sheepCountWaveIncrease: 5
+--- !u!4 &178608188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178608186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289565342
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,9 +357,15 @@ Transform:
   - {fileID: 5282911218545726514}
   - {fileID: 976796618}
   - {fileID: 1524613847484963927}
+  - {fileID: 554896571}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &331496014 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1907477919957944687, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
+  m_PrefabInstance: {fileID: 5969592139879155926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,28 +449,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 30, y: -45, z: 0}
---- !u!1 &745677531 stripped
+--- !u!1 &554896570
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5329106785988256405, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
-  m_PrefabInstance: {fileID: 5969592139879155926}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &745677533
-MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745677531}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554896571}
+  m_Layer: 0
+  m_Name: Seno Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &554896571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554896570}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.418413, y: -4.743599, z: -36.07723}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1739980132}
+  m_Father: {fileID: 289565343}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &745677533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
+  m_PrefabInstance: {fileID: 5969592139879155926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fe21b53b7e37f84fa7374b22e9155f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senoPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  fireRate: 1
-  bounds: 20
-  speed: 20
+--- !u!1 &960425287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960425289}
+  - component: {fileID: 960425288}
+  m_Layer: 0
+  m_Name: Destroy Seno Trigger
+  m_TagString: SenoDestoyTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &960425288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960425287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &960425289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960425287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35, y: 2.64, z: 50}
+  m_LocalScale: {x: 52.1978, y: 3.5095, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964607973
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +548,7 @@ GameObject:
   - component: {fileID: 964607976}
   - component: {fileID: 964607975}
   - component: {fileID: 964607978}
+  - component: {fileID: 964607979}
   m_Layer: 5
   m_Name: Left move
   m_TagString: Untagged
@@ -493,7 +618,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 964607976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 745677533}
+        m_TargetAssemblyTypeName: Tractormovement, Assembly-CSharp
+        m_MethodName: PressLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &964607976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,35 +685,29 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Tractormovement, Assembly-CSharp
-          m_MethodName: PressLeft
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Tractormovement, Assembly-CSharp
-          m_MethodName: StopPress
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &964607979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964607973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe21b53b7e37f84fa7374b22e9155f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  senoPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  fireRate: 0
+  senoContainer: {fileID: 0}
+  bounds: 0
+  speed: 0
 --- !u!4 &976796618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 964593155038704262, guid: 441a251f9bc00554ba1ccedeb6ba85d9, type: 3}
@@ -643,6 +774,50 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
+--- !u!1 &1444495262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444495264}
+  - component: {fileID: 1444495263}
+  m_Layer: 0
+  m_Name: Destroy Sheep Trigger
+  m_TagString: SenoDestoyTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1444495263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444495262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1444495264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444495262}
+  m_LocalRotation: {x: -0.013819367, y: 0.03687329, z: 0.00086309476, w: 0.99922407}
+  m_LocalPosition: {x: 0.9, y: 2.3, z: -48}
+  m_LocalScale: {x: 65.54982, y: 15.714121, z: 2.4376}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: -1.586, y: 4.226, z: 0.04}
 --- !u!1 &1477172254
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,9 +900,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 6fe21b53b7e37f84fa7374b22e9155f2, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 745677533}
+        m_TargetAssemblyTypeName: Tractormovement, Assembly-CSharp
+        m_MethodName: PressFire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -966,8 +1141,100 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1569057470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569057471}
+  m_Layer: 0
+  m_Name: Triggers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569057471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569057470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 60}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1739980132 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
+  m_PrefabInstance: {fileID: 3980505936480981680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1828639724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5460923277005466449, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
+  m_PrefabInstance: {fileID: 3980505936480981680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1828639728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828639724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662a4f9488c98fe4391a4d2a09c33a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+--- !u!1 &1876782399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4217976341934826318, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+  m_PrefabInstance: {fileID: 439469102000996071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1876782400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876782399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662a4f9488c98fe4391a4d2a09c33a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+  moveDirection: {x: 0, y: -1, z: 0}
+--- !u!114 &1876782406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876782399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925a34fc41e73ec4fb001312afa53f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sheepPrefab: {fileID: 0}
+  spawnPosition: {x: 0, y: 0, z: 0}
+  xSpawnBounds: {x: 0, y: 0}
+  sheepCount: 0
+  spawnRate: 0
+  waveRate: 0
+  sheepCountWaveIncrease: 0
 --- !u!1 &2115414170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1330,7 @@ RectTransform:
   - {fileID: 2122394464}
   - {fileID: 1477172255}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1152,21 +1419,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 745677533}
         m_TargetAssemblyTypeName: Tractormovement, Assembly-CSharp
         m_MethodName: PressRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Tractormovement, Assembly-CSharp
-        m_MethodName: StopPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1214,6 +1469,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122394463}
   m_CullTransparentMesh: 1
+--- !u!1001 &439469102000996071
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 853547385246176741, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.019426545
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.019426547
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7068399
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70683986
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934473070, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -176.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 4217976341934826318, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+      propertyPath: m_Name
+      value: Sheep
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4364003378372648362, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ba1b64349919e1541a9cd7661ffa2393, type: 3}
 --- !u!4 &1524613847484963927 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 964593155038704262, guid: 441a251f9bc00554ba1ccedeb6ba85d9, type: 3}
@@ -1374,23 +1691,23 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 554896571}
     m_Modifications:
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.9
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.18
+      value: 5.923599
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 29.1
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1398,15 +1715,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1418,6 +1735,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3142958377418919170, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983550542895742314, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5460923277005466449, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
@@ -1509,7 +1830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4603704009759125378, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.08
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4603704009759125378, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1553,20 +1874,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
       propertyPath: speed
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
       propertyPath: bounds
-      value: 0
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
       propertyPath: fireRate
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
+    - target: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
+      propertyPath: senoPrefab
+      value: 
+      objectReference: {fileID: 5460923277005466449, guid: 682f7a6c14f822a46b2f5b59c453b14f, type: 3}
+    - target: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 331496014}
+    - target: {fileID: 7656769780803596110, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
+      propertyPath: senoContainer
+      value: 
+      objectReference: {fileID: 554896571}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1657ec639f8b91a409a5b753e5a92970, type: 3}
